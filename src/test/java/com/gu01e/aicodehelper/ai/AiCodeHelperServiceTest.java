@@ -32,7 +32,7 @@ class AiCodeHelperServiceTest {
     void testChatWithRag() {
         String message = "我现在正在准备java反射相关的面试题，请你帮我查找一些出来";
         Result<String> result = aiCodeHelperService.chatWithRag(message);
-        //System.out.println(result.sources());
+        System.out.println(result.sources());
         System.out.println(result.content());
     }
 
@@ -42,4 +42,10 @@ class AiCodeHelperServiceTest {
         System.out.println("----------------------------------------------");
         System.out.println(result);
     }
+    @Test
+    void chatWithMcp() {
+        String result = aiCodeHelperService.chat("什么是程序员鱼皮的编程导航？");
+        System.out.println(result);
+    }
+
 }
