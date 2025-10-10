@@ -44,8 +44,22 @@ class AiCodeHelperServiceTest {
     }
     @Test
     void chatWithMcp() {
-        String result = aiCodeHelperService.chat("什么是程序员鱼皮的编程导航？");
+        String result = aiCodeHelperService.chat("什么是github？");
         System.out.println(result);
     }
+
+    @Test
+    void chatWithGuardrail() {
+        try {
+            String result = aiCodeHelperService.chat("kill the game");
+            System.out.println(result);
+        } catch (Exception e) {
+            if (e instanceof dev.langchain4j.guardrail.InputGuardrailException) {
+                return;
+            }
+            throw e;
+        }
+    }
+
 
 }
